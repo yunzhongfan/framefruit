@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="rockProperties" class="utils.RockProperties" />
+
+       <bean id="messageProperties" class="org.cf.myfen.webapp.ExpandProperties" init-method="load" scope="prototype">
+              <property name="fileName" value="/message-configuration.properties" />
+       </bean>
+
+       <bean id="commonProperties" class="org.cf.myfen.webapp.ExpandProperties" init-method="load" scope="prototype">
+              <property name="fileName" value="/common-configuration.properties" />
+       </bean>
+
+       <bean id="versionProperties" class="org.cf.myfen.webapp.ExpandProperties" init-method="load" scope="prototype">
+              <property name="fileName" value="/configuration-version.properties" />
+       </bean>
+
+       <!-- velocity Engine View与Email渲染都要使用 -->
+     <!--   <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+              <property name="resourceLoaderPath" value="/WEB-INF" />模板存放的路径
+              <property name="velocityProperties">
+                     <props>
+                            <prop key="velocimacro.library">/velocity/vmacro.vm</prop>
+                            <prop key="input.encoding">UTF-8</prop>
+                            <prop key="output.encoding">UTF-8</prop>
+                     </props>
+              </property>
+       </bean> -->
+
+<!--        <bean id="nullLogService" class="com.rock.framework.web.log.service.impl.NullLogService"/>
+ -->
+       <!--上传图片  -->
+       <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+              <property name="maxUploadSize">
+                     <value>100000</value>
+              </property>
+              <property name="defaultEncoding">
+                     <value>UTF-8</value>
+              </property>
+       </bean> -->
+
+</beans>
